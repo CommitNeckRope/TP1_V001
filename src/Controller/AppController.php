@@ -80,13 +80,18 @@ class AppController extends Controller
     public function isAuthorized($user)
     {
         // Par défaut, on refuse l'accès.
-        return false;
+        return true;
     }
 
     public function changeLang($lang = 'en_US') {
         I18n::setLocale($lang);
         $this->request->session()->write('Config.language', $lang);
         return $this->redirect($this->request->referer());
+    }
+
+    public function apropos() {
+
+        return $this->redirect('F:\UniServerZ\www\TP1_V001\src\Template\Layout\apropos.ctp');
     }
 
 
