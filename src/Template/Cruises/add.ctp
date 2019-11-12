@@ -1,4 +1,13 @@
 <?php
+$urlToLinkedListFilter = $this->Url->build([
+    "controller" => "Ville",
+    "action" => "getByPays",
+    "_ext" => "json"
+]);
+echo $this->Html->scriptBlock('var urlToLinkedListFilter = "' . $urlToLinkedListFilter . '";', ['block' => true]);
+echo $this->Html->script('Cruises/add', ['block' => 'scriptBottom']);
+?>
+<?php
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Cruise $cruise
@@ -21,6 +30,8 @@
     <fieldset>
         <legend><?= __('Add Cruise') ?></legend>
         <?php
+        echo $this->Form->control('Pays_id', ['options' => $pays]);
+        echo $this->Form->control('Ville_id', ['options' => $ville]);
             echo $this->Form->control('ship_id', ['options' => $ships]);
             echo $this->Form->control('start_date');
             echo $this->Form->control('end_date');

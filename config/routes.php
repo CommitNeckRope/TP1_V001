@@ -22,6 +22,8 @@ use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
 
+Router::extensions(['json', 'xml']);
+
 /**
  * The default class to use for all routes
  *
@@ -50,6 +52,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
         'httpOnly' => true
     ]));
+
+
 
     /**
      * Apply a middleware to the current route scope.

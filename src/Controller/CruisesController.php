@@ -60,8 +60,23 @@ class CruisesController extends AppController
             }
             $this->Flash->error(__('The cruise could not be saved. Please, try again.'));
         }
+
+        // Bâtir la liste des catégories
+        $this->loadModel('Pays');
+        $pays = $this->Pays->find('list', ['limit' => 200]);
+
+        // Extraire le id de la première catégorie
+        $pays = $pays->toArray();
+        reset($pays);
+        $pays_id = key($pays);
+
+        // Bâtir la liste des sous-catégories reliées à cette catégorie
+        $ville = $this->Cruises->Ville->find('list', [
+            'conditions' => ['Ville.pays_id' => $pays_id],
+        ]);
+
         $ships = $this->Cruises->Ships->find('list', ['limit' => 200]);
-        $this->set(compact('cruise', 'ships'));
+        $this->set(compact('cruise', 'ships','ville','pays'));
     }
 
     /**

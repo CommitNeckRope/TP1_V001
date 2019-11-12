@@ -42,6 +42,9 @@ class CruisesTable extends Table
             'foreignKey' => 'ship_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Ville', [
+            'foreignKey' => 'ville_id'
+        ]);
         $this->hasMany('CruisesRoomsUsers', [
             'foreignKey' => 'cruise_id'
         ]);
