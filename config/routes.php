@@ -53,8 +53,6 @@ Router::scope('/', function (RouteBuilder $routes) {
         'httpOnly' => true
     ]));
 
-
-
     /**
      * Apply a middleware to the current route scope.
      * Requires middleware to be registered via `Application::routes()` with `registerMiddleware()`
