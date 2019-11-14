@@ -37,7 +37,7 @@ class CruisesController extends AppController
     public function view($id = null)
     {
         $cruise = $this->Cruises->get($id, [
-            'contain' => ['Ships', 'CruisesRoomsUsers', 'Rooms']
+            'contain' => ['Ships', 'CruisesRoomsUsers', 'Rooms', 'Files']
         ]);
 
         $this->set('cruise', $cruise);
@@ -76,7 +76,8 @@ class CruisesController extends AppController
         ]);
 
         $ships = $this->Cruises->Ships->find('list', ['limit' => 200]);
-        $this->set(compact('cruise', 'ships','ville','pays'));
+        $files = $this->Cruises->Files->find('list', ['limit' => 200]);
+        $this->set(compact('cruise', 'ships','files','ville','pays'));
     }
 
     /**
@@ -114,7 +115,8 @@ class CruisesController extends AppController
             $this->Flash->error(__('The cruise could not be saved. Please, try again.'));
         }
         $ships = $this->Cruises->Ships->find('list', ['limit' => 200]);
-        $this->set(compact('cruise', 'ships'));
+        $files = $this->Cruises->Files->find('list', ['limit' => 200]);
+        $this->set(compact('cruise', 'ships', 'files'));
     }
 
     public function isAuthorized($user)

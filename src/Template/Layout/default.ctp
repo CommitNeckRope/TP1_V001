@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -33,6 +33,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     echo $this->Html->css([
         'base.css',
         'style.css',
+        'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
+        'Cocktails/basic.css',
         'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'
     ]);
     ?>
@@ -43,7 +45,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?php
     echo $this->Html->script([
         'https://code.jquery.com/jquery-1.12.4.js',
-        'https://code.jquery.com/ui/1.12.1/jquery-ui.js'
+        'https://code.jquery.com/ui/1.12.1/jquery-ui.js',
+        'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'
     ], ['block' => 'scriptLibraries']
     );
     ?>
@@ -67,8 +70,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </li>
                 <li><?=
                     $this->Html->link('Autocomplete', [
-                        'controller' => 'Roomtype',
-                        'action' => 'autocomplete'
+                        'controller' => 'Rooms',
+                        'action' => 'add'
                     ]);
                     ?>
                 </li>

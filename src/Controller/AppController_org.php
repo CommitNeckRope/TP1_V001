@@ -16,8 +16,6 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use Cake\I18n\I18n;
-use \Crud\Controller\ControllerTrait;
 
 /**
  * Application Controller
@@ -42,61 +40,24 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-        I18n::setLocale($this->request->session()->read('Config.language'));
-        $this->loadComponent('RequestHandler', [
-            'enableBeforeRedirect' => false,
-        ]);
 
+        $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->loadComponent('Auth', [
-            // La ligne suivante a été ajoutée
-            'authorize'=> 'Controller',
-            'authenticate' => [
-                'Form' => [
-                    'fields' => [
-                        'username' => 'email',
-                        'password' => 'password'
-                    ]
-                ]
-            ],
-            'loginAction' => [
-                'controller' => 'Users',
-                'action' => 'login'
-            ],
-            // Si pas autorisé, on renvoit sur la page précédente
-            'unauthorizedRedirect' => $this->referer()
-        ]);
-
-        // Permet à l'action "display" de notre PagesController de continuer
-        // à fonctionner. Autorise également les actions "read-only".
-        $this->Auth->allow(['display', 'view', 'index', 'changelang']);
 
         /*
-         * Enable the following component for recommended CakePHP security settings.
+         * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+        //$this->loadComponent('Csrf');
     }
 
-
-
-    public function isAuthorized($user)
-    {
-        // Par défaut, on refuse l'accès.
-        return true;
-    }
-
-    public function changeLang($lang = 'en_US') {
-        I18n::setLocale($lang);
-        $this->request->session()->write('Config.language', $lang);
-        return $this->redirect($this->request->referer());
-    }
-
-    public function apropos() {
-
-        return $this->redirect('F:\UniServerZ\www\TP1_V001\src\Template\Layout\apropos.ctp');
-    }
-
+    /**
+     * Before render callback.
+     *
+     * @param \Cake\Event\Event $event The beforeRender event.
+     * @return \Cake\Http\Response|null|void
+     */
     public function beforeRender(Event $event)
     {
         // Note: These defaults are just to get started quickly with development
@@ -108,6 +69,4 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
-
-
 }

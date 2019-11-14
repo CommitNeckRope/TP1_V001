@@ -21,9 +21,9 @@ class RoomtypeController extends AppController
 
     public function index()
     {
-        $roomtype = $this->paginate($this->Roomtype);
+        $roomtypes = $this->paginate($this->Roomtype);
 
-        $this->set(compact('roomtype'));
+        $this->set(compact('roomtypes'));
     }
 
     public function initialize() {
