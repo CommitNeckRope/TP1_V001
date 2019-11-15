@@ -4,11 +4,11 @@ namespace App\Controller\Api;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use \Crud\Controller\ControllerTrait;
+
 
 class AppController extends Controller {
 
-
+    use \Crud\Controller\ControllerTrait;
 
     public function initialize() {
         parent::initialize();

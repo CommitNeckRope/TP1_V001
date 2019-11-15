@@ -56,7 +56,11 @@ Router::prefix('api', function ($routes) {
     $routes->fallbacks('InflectedRoute');
 });
 
-Router::scope('/', function (RouteBuilder $routes) {
+Router::prefix('Admin', function ($routes) {
+    $routes->fallbacks('InflectedRoute');
+});
+
+Router::scope('/', function ($routes) {
 
    // $routes->resources('Roomtype');
 
@@ -77,7 +81,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/', ['controller' => 'Roomtype', 'action' => 'index']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

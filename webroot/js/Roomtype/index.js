@@ -1,14 +1,14 @@
-function getRoomType() {
+function getRoomtype() {
     $.ajax({
         type: 'GET',
         url: urlToRestApi,
         dataType: "json",
         success:
-                function (roomtype) {
-                    var roomtypeTable = $('#roomtype');
+                function (roomtypes) {
+                    var roomtypeTable = $('#roomtypeData');
                     roomtypeTable.empty();
                     var count = 1;
-                    $.each(roomtype.data, function (key, value)
+                    $.each(roomtypes.data, function (key, value)
                     {
                         var editDeleteButtons = '</td><td>' +
                                 '<a href="javascript:void(0);" class="glyphicon glyphicon-edit" onclick="editRoomtype(' + value.id + ')"></a>' +

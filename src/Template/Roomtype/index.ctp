@@ -9,7 +9,7 @@ echo $this->Html->script('Roomtype/index', ['block' => 'scriptBottom']);
         <div class="panel panel-default roomtypes-content">
             <div class="panel-heading">Roomtypes <a href="javascript:void(0);" class="glyphicon glyphicon-plus" id="addLink" onclick="javascript:$('#addForm').slideToggle();">Add</a></div>
             <div class="panel-body none formData" id="addForm">
-                <h2 id="actionLabel">AddRroomtypes</h2>
+                <h2 id="actionLabel">Add room type</h2>
                 <form class="form" id="roomtypeAddForm" enctype='application/json'>
                     <div class="form-group">
                         <label>Name</label>
@@ -21,7 +21,7 @@ echo $this->Html->script('Roomtype/index', ['block' => 'scriptBottom']);
                 </form>
             </div>
             <div class="panel-body none formData" id="editForm">
-                <h2 id="actionLabel">Edit Roomtype</h2>
+                <h2 id="actionLabel">Edit room type</h2>
                 <form class="form" id="roomtypeEditForm" enctype='application/json'>
                     <div class="form-group">
                         <label>Name</label>
@@ -36,7 +36,7 @@ echo $this->Html->script('Roomtype/index', ['block' => 'scriptBottom']);
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>id</th>
                         <th>Name</th>
                         <th>Action</th>
                     </tr>
@@ -49,7 +49,6 @@ echo $this->Html->script('Roomtype/index', ['block' => 'scriptBottom']);
                         <tr>
                             <td><?php echo '#' . $count; ?></td>
                             <td><?php echo $roomtype['name']; ?></td>
-
                             <td>
                                 <a href="javascript:void(0);" class="glyphicon glyphicon-edit" onclick="editRoomtype('<?php echo $roomtype['id']; ?>')"></a>
                                 <a href="javascript:void(0);" class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete data?') ? roomtypeAction('delete', '<?php echo $roomtype['id']; ?>') : false;"></a>
@@ -58,7 +57,7 @@ echo $this->Html->script('Roomtype/index', ['block' => 'scriptBottom']);
                         <?php
                     endforeach;
                     ?>
-                    <tr><td colspan="5">No roomtypes(s) found......</td></tr>
+                    <tr><td colspan="5">No more room types(s) found......</td></tr>
                 </tbody>
             </table>
         </div>

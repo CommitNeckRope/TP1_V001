@@ -15,7 +15,7 @@ class RoomtypeController extends AppController {
             'id', 'name', 'description'
         ],
 */        'sortWhitelist' => [
-            'id', 'name', 'description'
+            'id', 'name'
         ]
     ];
 
