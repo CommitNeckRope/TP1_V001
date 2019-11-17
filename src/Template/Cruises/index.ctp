@@ -39,6 +39,7 @@
                 <td><?= h($cruise->other_details) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $cruise->id]) ?>
+                    <?= $this->Html->link('(pdf)', ['action' => 'view', $cruise->id . '.pdf']) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $cruise->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $cruise->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cruise->id)]) ?>
                 </td>

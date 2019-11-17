@@ -24,6 +24,7 @@ use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
 
 Router::extensions(['json', 'xml']);
+Router::extensions(['pdf']);
 
 /**
  * The default class to use for all routes
@@ -81,7 +82,7 @@ Router::scope('/', function ($routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Roomtype', 'action' => 'index']);
+    $routes->connect('/', ['controller' => 'Cruises', 'action' => 'index']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
