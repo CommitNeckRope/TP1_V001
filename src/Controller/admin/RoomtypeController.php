@@ -32,6 +32,7 @@ class RoomtypeController extends AppController
 
     public function initialize() {
         parent::initialize();
+        //$this->viewBuilder()->setLayout('admin');
        // $this->Auth->allow(['autocomplete', 'findType', 'add', 'edit', 'delete']);
     }
 

@@ -92,6 +92,7 @@ class AppController extends Controller
         return $this->redirect($this->request->referer());
     }
 
+
     public function apropos() {
 
         return $this->redirect('F:\UniServerZ\www\TP1_V001\src\Template\Layout\apropos.ctp');

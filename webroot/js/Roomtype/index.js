@@ -68,7 +68,7 @@ function roomtypeAction(type, id) {
         data: JSON.stringify(roomtypeData),
         success: function (msg) {
             if (msg) {
-                alert('Roomtype data has been ' + statusArr[type] + ' successfully.');
+                alert('Room type data has been ' + statusArr[type] + ' successfully.');
                 getRoomtype();
                 $('.form')[0].reset();
                 $('.formData').slideUp();
@@ -88,7 +88,6 @@ function editRoomtype(id) {
         success: function (data) {
             $('#idEdit').val(data.data.id);
             $('#nameEdit').val(data.data.name);
-            $('#descriptionEdit').val(data.data.description);
             $('#editForm').slideDown();
         }
     });

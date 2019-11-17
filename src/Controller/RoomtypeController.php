@@ -29,6 +29,7 @@ class RoomtypeController extends AppController
     public function initialize() {
         parent::initialize();
         $this->Auth->allow(['autocomplete', 'findType', 'add', 'edit', 'delete']);
+        $this->viewBuilder()->setLayout('monopage');
     }
 
     public function findType() {
@@ -61,7 +62,7 @@ class RoomtypeController extends AppController
                     'id', 'name', 'description'
                 ],
         */        'sortWhitelist' => [
-            'id', 'name', 'description'
+            'id', 'name'
         ]
     ];
 

@@ -62,6 +62,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
                 <li><?=
                     $this->Html->link('Listes dynamiques', [
+                        'prefix' => false,
                         'controller' => 'Cruises',
                         'action' => 'add'
                     ]);
@@ -69,6 +70,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </li>
                 <li><?=
                     $this->Html->link('Autocomplete', [
+                        'prefix' => false,
                         'controller' => 'Rooms',
                         'action' => 'add'
                     ]);
@@ -79,22 +81,22 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 $loguser = $this->request->getSession()->read('Auth.User');
                 if ($loguser) {
                     $user = $loguser['email'];
-                    echo $this->Html->link($user . ' logout', ['controller' => 'Users', 'action' => 'logout']);
+                    echo $this->Html->link($user . ' logout', ['prefix' => false, 'controller' => 'Users', 'action' => 'logout']);
                 } else {
-                    echo $this->Html->link('login', ['controller' => 'Users', 'action' => 'login']);
+                    echo $this->Html->link('login', ['prefix' => false, 'controller' => 'Users', 'action' => 'login']);
                 }
                 ?></li>
 
                 <li>
-                    <?= $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA'], ['escape' => false]) ?>
+                    <?= $this->Html->link('Français',['prefix' => false, 'action' => 'changeLang', 'fr_CA'], ['escape' => false]) ?>
                 </li>
 
                 <li>
-                    <?= $this->Html->link('English', ['action' => 'changeLang', 'en_US'], ['escape' => false]) ?>
+                    <?= $this->Html->link('English', ['prefix' => false, 'action' => 'changeLang', 'en_US'], ['escape' => false]) ?>
                 </li>
 
                 <li>
-                    <?= $this->Html->link('Español', ['action' => 'changeLang', 'es_ES'], ['escape' => false]) ?>
+                    <?= $this->Html->link('Español', ['prefix' => false, 'action' => 'changeLang', 'es_ES'], ['escape' => false]) ?>
                 </li>
 
                 <li>  <?= $this->Html->link('À propos', '/html/apropos.html'); ?> </li>
